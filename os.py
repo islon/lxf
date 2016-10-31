@@ -30,3 +30,6 @@ print [x for x in os.listdir('I:/python/.') if os.path.isdir(x)]
 
 #列出所有后缀为.py的文件
 print [x for x in os.listdir('I:/python/.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py']
+
+
+
