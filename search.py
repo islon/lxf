@@ -2,25 +2,20 @@
 
 import os
 
-def search(fullpath,key):
-	f=open('D:\python\lxf\search\searchResult.txt','w')
-	for name in os.listdir(fullpath):
-		Nfullpath=os.path.join(fullpath,name)
-		if os.path.isfile(Nfullpath):
-			if key in name:
-				print "%s is file contain %s"%(Nfullpath,key)
-				f.write(Nfullpath)				
-		else:
-			search(Nfullpath,key)
-	f.close()
-
-
-if __name__ == "__main__":
-	keyword=raw_input("Please input the keyword:")
-	search('D:\\python\\lxf\\search',keyword)
-	#路径替换成你自己的电脑路径，注意\\双斜杠
-	
-	
 #遍历当前文件夹的文件
 #if 文件，打印位置
 #else 文件夹，递归
+
+
+def search(fullpath,key):
+	for name in os.listdir(fullpath):
+		Nfullpath=os.path.join(fullpath,name)
+		if os.path.isfile(Nfullpath):
+			if key in os.path.split(Nfullpath)[0]:
+				print "%s is file contain %s"%(Nfullpath,key)
+			else:
+				print "%s is file#############################"%Nfullpath
+		else:
+			search(Nfullpath,key)
+			
+search('I:\\python','test')
